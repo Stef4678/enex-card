@@ -1,6 +1,6 @@
 {
   "name": "enex-card",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Turn Evernote ENEX exports (the kind Embeds+ renders inline) into a visual notes board on the Obsidian canvas.",
   "main": "main.js",
   "scripts": {

@@ -1,7 +1,7 @@
 {
   "id": "enex-card",
   "name": "Enex Card",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minAppVersion": "1.4.0",
   "description": "Visual notes board: turn Evernote .enex exports into canvas cards — one per note, grouped per notebook, with images, tags, dates and PDF previews.",
   "author": "Enex Card",
