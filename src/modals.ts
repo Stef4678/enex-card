@@ -75,21 +75,25 @@ export class RunConfirmModal<T = BoardBuildResult> extends Modal {
       text: this.opts.actionLabel ?? "Run",
       cls: "mod-cta",
     });
-    run.addEventListener("click", async () => {
-      if (this.busy) return;
-      this.busy = true;
-      run.disabled = true;
-      run.setText("Building…");
-      cancel.disabled = true;
-      try {
-        const result = await this.opts.execute();
-        this.close();
-        this.opts.onSuccess(result);
-      } catch (e) {
-        this.close();
-        new Notice(`Enex Card failed:\n${(e as Error).message || String(e)}`, 15000);
-      }
+    run.addEventListener("click", () => {
+      void this.runClicked(run, cancel);
     });
+  }
+
+  private async runClicked(run: HTMLButtonElement, cancel: HTMLButtonElement): Promise<void> {
+    if (this.busy) return;
+    this.busy = true;
+    run.disabled = true;
+    run.setText("Building…");
+    cancel.disabled = true;
+    try {
+      const result = await this.opts.execute();
+      this.close();
+      this.opts.onSuccess(result);
+    } catch (e) {
+      this.close();
+      new Notice(`Enex Card failed:\n${(e as Error).message || String(e)}`, 15000);
+    }
   }
 
   onClose(): void {

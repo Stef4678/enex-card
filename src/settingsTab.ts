@@ -17,7 +17,7 @@ export class EnexCardSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    containerEl.createEl("h3", { text: "Where files go" });
+    new Setting(containerEl).setName("Where files go").setHeading();
 
     new Setting(containerEl)
       .setName("Output folder")
@@ -61,7 +61,7 @@ export class EnexCardSettingTab extends PluginSettingTab {
           }),
       );
 
-    containerEl.createEl("h3", { text: "Cards" });
+    new Setting(containerEl).setName("Cards").setHeading();
 
     new Setting(containerEl)
       .setName("Card width")
@@ -165,7 +165,7 @@ export class EnexCardSettingTab extends PluginSettingTab {
         }),
       );
 
-    containerEl.createEl("h3", { text: "Markdown notes" });
+    new Setting(containerEl).setName("Markdown notes").setHeading();
 
     new Setting(containerEl)
       .setName("Prepend “# Title”")
@@ -258,7 +258,7 @@ export class EnexCardSettingTab extends PluginSettingTab {
         }),
       );
 
-    containerEl.createEl("h3", { text: "Behaviour" });
+    new Setting(containerEl).setName("Behaviour").setHeading();
 
     new Setting(containerEl)
       .setName("Open the board afterwards")
@@ -279,11 +279,12 @@ export class EnexCardSettingTab extends PluginSettingTab {
         }),
       );
 
-    containerEl.createEl("div", {
-      cls: "setting-item enex-card-muted",
-      text: "Tip: keep the original .enex files in your vault. Embeds+ previews them inline with "
-        + "full Evernote styling; Enex Card turns every note into a card on a spatial canvas.",
-    });
+    new Setting(containerEl)
+      .setName("Tip")
+      .setDesc(
+        "Keep the original .enex files in your vault. Embeds+ previews them inline with " +
+          "full Evernote styling; Enex Card turns every note into a card on a spatial canvas.",
+      );
   }
 }
 

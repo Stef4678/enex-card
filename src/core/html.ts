@@ -295,7 +295,7 @@ export function enmlHtmlToMarkdown(enmlHtml: string): HtmlToMarkdownResult {
 
   const doc = new DOMParser().parseFromString(htmlText, "text/html");
   const enNote = doc.querySelector("en-note");
-  const body = (enNote ?? doc.body) as Element;
+  const body = enNote ?? doc.body;
 
   const rawLines = linesOfChildren(body, 0);
 

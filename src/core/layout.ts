@@ -180,7 +180,7 @@ export function buildCanvas(boards: BoardSpec[], opts: CardLayoutOptions): Build
     // Row-major grid positions.
     const xs: number[] = [];
     const ys: number[] = [];
-    const rowMax: number[] = new Array(rowCount).fill(0);
+    const rowMax: number[] = new Array<number>(rowCount).fill(0);
     for (let i = 0; i < n; i++) {
       const r = Math.floor(i / cols);
       const c = i % cols;

@@ -56,7 +56,7 @@ export function md5Hex(data: Uint8Array): string {
   let d0 = 0x10325476;
 
   for (let off = 0; off < total; off += 64) {
-    const X: number[] = new Array(16);
+    const X = new Array<number>(16);
     for (let j = 0; j < 16; j++) X[j] = dv.getUint32(off + j * 4, true);
 
     let a = a0;

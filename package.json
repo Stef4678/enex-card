@@ -19,7 +19,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.14.10",
-    "builtin-modules": "^3.3.0",
     "esbuild": "^0.23.0",
     "jsdom": "^24.1.1",
     "obsidian": "^1.7.2",

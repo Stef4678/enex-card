@@ -15,25 +15,25 @@ export default class EnexCardPlugin extends Plugin {
     await this.loadSettings();
 
     this.addCommand({
-      id: "enex-card-build-from-file",
+      id: "build-from-file",
       name: "Build visual board from an ENEX file…",
       callback: () => void this.pickFileAndBuild(),
     });
 
     this.addCommand({
-      id: "enex-card-build-from-folder",
+      id: "build-from-folder",
       name: "Build one visual board from every ENEX in a folder…",
       callback: () => void this.pickFolderAndBuild(),
     });
 
     this.addCommand({
-      id: "enex-card-add-file-to-board",
+      id: "add-file-to-board",
       name: "Add ENEX file to an existing board…",
       callback: () => void this.pickCanvasThenSource("file"),
     });
 
     this.addCommand({
-      id: "enex-card-add-folder-to-board",
+      id: "add-folder-to-board",
       name: "Add all ENEX in a folder to an existing board…",
       callback: () => void this.pickCanvasThenSource("folder"),
     });
@@ -46,7 +46,8 @@ export default class EnexCardPlugin extends Plugin {
   }
 
   async loadSettings(): Promise<void> {
-    this.settings = normalizeSettings(await this.loadData());
+    const data = (await this.loadData()) as Partial<EnexCardSettings> | null | undefined;
+    this.settings = normalizeSettings(data);
   }
 
   async saveSettings(): Promise<void> {
@@ -75,7 +76,8 @@ export default class EnexCardPlugin extends Plugin {
       data: f,
     }));
     new EnexPickModal(this.app, items, (data) => {
-      const file = data as TFile;
+      if (!(data instanceof TFile)) return;
+      const file = data;
       this.confirmAndBuild([file], file.basename, [`Source: ${file.path}`]);
     }, "No .enex files match that search.").open();
   }
@@ -168,7 +170,8 @@ export default class EnexCardPlugin extends Plugin {
       data: f,
     }));
     new EnexPickModal(this.app, canvasItems, (canvas) => {
-      const target = canvas as TFile;
+      if (!(canvas instanceof TFile)) return;
+      const target = canvas;
       if (kind === "file") {
         const files = this.newEngine().enexFilesIn("");
         if (files.length === 0) {
@@ -181,7 +184,8 @@ export default class EnexCardPlugin extends Plugin {
           data: f,
         }));
         new EnexPickModal(this.app, items, (chosen) => {
-          const file = chosen as TFile;
+          if (!(chosen instanceof TFile)) return;
+          const file = chosen;
           this.confirmAdd(target, [file], [
             `Board: ${target.path}`,
             `Source: ${file.path}`,

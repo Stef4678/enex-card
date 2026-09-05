@@ -24,7 +24,7 @@ export function hashUnit(seed: string): number {
  */
 export function toSafeSegment(input: string, fallback: string, maxLen = 80): string {
   let s = (input ?? "")
-    // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex -- strip control characters (U+0000–U+001F, U+007F) that are invalid in file names
     .replace(/[\u0000-\u001f\u007f]/g, " ")
     .replace(/[<>:"/\\|?*\u202a-\u202e]/g, "-")
     .replace(/\s+/g, " ")
