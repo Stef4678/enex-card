@@ -17,6 +17,14 @@ Keep your original `.enex` files anywhere in the vault. Use Embeds+ when you
 need the exact Evernote rendering; use Enex Card to get a spatial, glanceable
 board you can rearrange like sticky notes.
 
+## Screenshots
+
+![Enex Card screenshot 1](assets/screenshot-1.png)
+
+![Enex Card screenshot 2](assets/screenshot-2.png)
+
+![Enex Card screenshot 3](assets/screenshot-3.png)
+
 ---
 
 ## Features
