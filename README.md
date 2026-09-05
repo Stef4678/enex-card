@@ -133,4 +133,4 @@ npm test         # unit smoke tests for the pure core (parser/markdown/layout)
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT © 2026 Kerekes Stefan — see [LICENSE](LICENSE).
