@@ -3,7 +3,7 @@
   "name": "Enex Card",
   "version": "0.0.1",
   "minAppVersion": "1.4.0",
-  "description": "Visual notes board: parse Evernote .enex exports (the same files Embeds+ previews inline) into one Obsidian canvas card per note, with images, tags, colors and notebook groups.",
+  "description": "Visual notes board: turn Evernote .enex exports into canvas cards — one per note, grouped per notebook, with images, tags, dates and PDF previews.",
   "author": "Enex Card",
   "authorUrl": "",
   "isDesktopOnly": false,
