@@ -1,0 +1,17 @@
+/* Enex Card — small styling helpers for modals/settings. */
+
+.enex-card-preview {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.enex-card-muted {
+  opacity: 0.7;
+  font-size: var(--font-ui-smaller);
+}
+
+.enex-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
